@@ -1,19 +1,28 @@
+require('dotenv').config();
 
-const saddle = require('./models/saddle-model');
+const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const express = require('express');
+const saddle = require('./models/saddle-model');
 const app = express();
-
 const port = 3001;
 
 app.use(cors());
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({extended: true }));
 
-app.get('/', (req, res) => {
-    res.send("Hello")
+app.get("/", (req, res) => {
+    res.send("Hello");
+});
+
+app.get('/saddles', async (req, res) => {
+    try {
+        const response = await saddle.getSaddles();
+        res.status(200).send(response);
+    } catch (error) {
+        res.status(500).send(error);
+    }
 });
 
 app.post('/add-saddle', (req, res) => {
