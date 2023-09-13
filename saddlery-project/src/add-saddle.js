@@ -1,12 +1,51 @@
 import './saddlery.css';
+import axios from 'axios';
+import { useState } from 'react';
 
 function AddSaddle() {
+    const [saddle, setSaddle] = useState({
+        saddle_name: '',
+        type: '',
+        size: '',
+        color: '',
+        weight: '',
+        price: '',
+        description: '',
+    });
+
+    const handleChange = (e) => {
+        const value = e.target.value;
+        setSaddle({
+            ...saddle,
+            [e.target.name]: value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const newSaddle = {
+            saddle_name: saddle.saddle_name,
+            type: saddle.type,
+            size: saddle.size,
+            color: saddle.color,
+            weight: saddle.weight,
+            price: saddle.price,
+            description: saddle.description,
+        };
+        axios.post('localhost:3001/', newSaddle)
+        .then((response) => {
+            console.log('a new saddle has been added', response, newSaddle)
+        });
+    };
+
+
     return (
         <div>     
             <h1>Add a saddle</h1>
-            <label>Saddle Name</label> <input type="text" name="saddle_name" /><br/> 
+            <form onSumbit={handleSubmit}>
+            <label>Saddle Name</label> <input type="text" name="saddle_name" value={saddle.saddle_name} onChange={handleChange}/><br/> 
             <label>Type</label>
-                <select>
+                <select name="type" value={saddle.type} onChange={handleChange}>
                     <option value="barrel racing">Barrel Racing</option>
                     <option value="cutting">Cutting</option>
                     <option value="roping">Roping</option>
@@ -20,15 +59,15 @@ function AddSaddle() {
                     <option value="all around">All Around</option>
                 </select><br/> 
             <label>Size</label> 
-                <select>
-                    <option value="13">13"</option>
-                    <option value="14">14"</option>
-                    <option value="15">15"</option>
-                    <option value="16">16"</option>
-                    <option value="17">17"</option>
+                <select name="size" value={saddle.size} onChange={handleChange}>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
                 </select><br/> 
             <label>Color</label> 
-                <select>
+                <select name="color" value={saddle.color} onChange={handleChange}>
                     <option value="natural">Natural</option>
                     <option value="light oil">Light Oil</option>
                     <option value="medium oil">Medium Oil</option>
@@ -38,9 +77,11 @@ function AddSaddle() {
                     <option value="chocolate">Chocolate</option>
                     <option value="black">Black</option>
                 </select><br/> 
-            <label>Weight</label> <input type="text" name="weight" /><br/> 
-            <label>Price</label> <input type="text" name="price" /><br/> 
-            <label>Description</label> <textarea name="description" /><br/> 
+            <label>Weight</label> <input type="text" name="weight" value={saddle.weight} onChange={handleChange}/><br/> 
+            <label>Price</label> <input type="text" name="price" value={saddle.price} onChange={handleChange}/><br/> 
+            <label>Description</label> <textarea name="description" value={saddle.description} onChange={handleChange}/><br/> 
+            <button type="submit">Add Saddle</button>
+            </form>
         </div>
     );
 }
