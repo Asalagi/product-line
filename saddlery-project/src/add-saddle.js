@@ -1,6 +1,8 @@
 import './saddlery.css';
 import axios from 'axios';
 import { useState } from 'react';
+import Header from './header';
+import Footer from './footer';
 
 function AddSaddle() {
     const [saddle, setSaddle] = useState({
@@ -40,7 +42,10 @@ function AddSaddle() {
 
 
     return (
-        <div>     
+        <div className="hb-main-container">     
+        <Header></Header>    
+         <div className="hb-inner-content">
+          <div className="inner-content-title">
             <h1>Add a saddle</h1>
             <form onSubmit={handleSubmit}>
             <label>Saddle Name</label> <input type="text" name="saddle_name" value={saddle.saddle_name} onChange={handleChange}/><br/> 
@@ -83,6 +88,9 @@ function AddSaddle() {
             <button type="submit">Add Saddle</button>
             </form>
         </div>
+       </div>
+       <Footer></Footer>
+      </div>
     );
 }
 
