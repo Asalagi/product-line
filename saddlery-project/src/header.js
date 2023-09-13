@@ -1,10 +1,11 @@
 import './saddlery.css';
+import hblogo from './hblogo.png';
 
 function Header() {
     return (
         <div>
             <header className="hb-header">
-                Holly Bake Saddlery
+                <img src={hblogo} alt="logo" height="190" />
             </header>     
         </div>
     );
