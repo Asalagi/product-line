@@ -21,6 +21,40 @@ html, body {
     justify-content: center;
     align-items: center;
     background-color: #CB8589;
+    box-shadow: 0 28px 10px 5px rgba(0,0,0,0.5);
+}
+
+.nav-bar {
+    display: flex;
+    height: 40px;
+    background-color: #796465;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    height: 30px;
+    width: 50%;
+    background-color: #796465;
+    justify-content: space-between;
+    align-items: center;
+    border: 0px solid black;
+}
+
+.main-links {
+    color: #DDE8B9;
+    font-size: 1.5rem;
+    font-family:'Courier New', Courier, monospace;
+    text-decoration: none;
+}
+
+.main-links:hover {
+    color: #CB8589;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family:'Courier New', Courier, monospace;
+    text-decoration: none;
 }
 
 .hb-inner-content {
