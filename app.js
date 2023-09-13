@@ -25,7 +25,7 @@ app.get('/saddles', async (req, res) => {
     }
 });
 
-app.post('/add-saddle', (req, res) => {
+app.post('/saddles', (req, res) => {
     saddle.addSaddle(req.body)
     .then(response => {
         res.status(200).send(response);

@@ -32,9 +32,9 @@ function AddSaddle() {
             price: saddle.price,
             description: saddle.description,
         };
-        axios.post('localhost:3001/', newSaddle)
+        axios.post('http://localhost:3001/saddles', newSaddle)
         .then((response) => {
-            console.log('a new saddle has been added', response, newSaddle)
+            console.log('a new saddle has been added', response, newSaddle);
         });
     };
 
@@ -42,7 +42,7 @@ function AddSaddle() {
     return (
         <div>     
             <h1>Add a saddle</h1>
-            <form onSumbit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
             <label>Saddle Name</label> <input type="text" name="saddle_name" value={saddle.saddle_name} onChange={handleChange}/><br/> 
             <label>Type</label>
                 <select name="type" value={saddle.type} onChange={handleChange}>
