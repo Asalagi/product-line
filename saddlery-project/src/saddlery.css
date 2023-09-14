@@ -84,9 +84,15 @@ html, body {
 
 .saddle-card {
     padding: 5px;
-    width: fit-content;
+    width: 150px;
     margin: 5px;
     border: 1px solid black;
+}
+
+.card-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hb-footer {
