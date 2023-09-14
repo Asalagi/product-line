@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const saddle = require('./models/saddle-model');
+const { response } = require('express');
 const app = express();
 const port = 3001;
 
@@ -27,6 +28,16 @@ app.get('/saddles', async (req, res) => {
 
 app.post('/saddles', (req, res) => {
     saddle.addSaddle(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    });
+});
+
+app.delete('/saddle/:id', (req, res) => {
+    saddle.deleteSaddle(req.params.id)
     .then(response => {
         res.status(200).send(response);
     })

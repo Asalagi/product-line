@@ -1,4 +1,5 @@
 
+const { request } = require('express');
 const pool = require('.././config/saddle-config');
 
 const getSaddles = () => {
@@ -29,7 +30,21 @@ const addSaddle = (body) => {
     });
 };
 
+const deleteSaddle = (id) => {
+    return new Promise(async (resolve, reject) => {
+        const id =  parseInt(request.params.id);
+        pool.query('DELETE FROM saddle WHERE id = $1', [id], (error, results) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(`Saddle with ${id} has been deleted`);
+            }
+        });
+    });
+}
+
 module.exports = {
     getSaddles,
     addSaddle,
+    deleteSaddle,
 }
