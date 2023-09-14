@@ -15,7 +15,7 @@ function Saddles() {
     const fetchSaddles = () => {
         axios.get('http://localhost:3001/saddles')
         .then(res => {
-            console.log({ setGetSaddles: res.data });
+            console.log(setGetSaddles, res.data);
         })
         .catch(function (error) {
             console.log(error);
