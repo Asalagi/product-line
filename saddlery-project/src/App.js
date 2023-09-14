@@ -4,6 +4,7 @@ import Header from './header';
 import Footer from './footer';
 import Navigation from './navigation';
 import Home from './home';
+import Saddles from './saddles';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="footer" element={<Footer/>} />
         <Route path="navigation" element={<Navigation/>} />
         <Route path="add-saddle" element={<AddSaddle/>} />
+        <Route path="saddles" element={<Saddles/>} />
       </Routes>
     </BrowserRouter>
     );

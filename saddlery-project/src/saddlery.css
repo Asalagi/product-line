@@ -21,7 +21,7 @@ html, body {
     justify-content: center;
     align-items: center;
     background-color: #CB8589;
-    box-shadow: 0 28px 10px 5px rgba(0,0,0,0.5);
+    box-shadow: 0 35px 10px 5px rgba(0,0,0,0.5);
 }
 
 .nav-bar {
@@ -65,10 +65,29 @@ html, body {
     border: 1px solid black;
 }
 
-/* .inner-content-title {
+.inner-content-title {
+    display: flex;
     padding: 10px;
+    justify-content: center;
+    align-items: center;
     border: 1px solid black;
-} */
+}
+
+.card-container {
+    display: flex;
+    width: 75%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(167, 37, 37);
+}
+
+.saddle-card {
+    padding: 5px;
+    width: fit-content;
+    margin: 5px;
+    border: 1px solid black;
+}
 
 .hb-footer {
     color: #F6F1F1;
