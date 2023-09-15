@@ -83,6 +83,33 @@ html, body {
     border: 1px solid rgb(167, 37, 37);
 }
 
+.detail-img-container {
+    display: flex;
+    width: 75%;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid rgb(167, 37, 37);
+}
+
+.detail-item {
+    display: flex;
+    flex: 1;
+    padding: 5px;
+    justify-content: left;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.go-right {
+    text-align: right;
+}
+
+.detail-content {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+
 .saddle-card {
     padding: 5px;
     width: 150px;
