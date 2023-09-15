@@ -10,20 +10,12 @@ function Saddles() {
     const [getSaddles, setGetSaddles] = useState([]);
 
     useEffect(() => {
-        fetchSaddles();
-    }, []);
-
-    const fetchSaddles = () => {
         axios.get('http://localhost:3001/saddles')
-        .then(response => {
-            if(Array.isArray(response.data)) {
-                setGetSaddles(response.data);
-            } else {
-                console.error('This is not an array');
-            }
-        })
-        .catch(error => console.error('Something is wrong', error));
-    };
+        .then((response) => setGetSaddles(response.data))
+        .catch (error => {
+            console.log(error.message);
+        });
+    }, []);
 
     return (
         <div className="hb-main-container">     
@@ -32,7 +24,7 @@ function Saddles() {
             <div className="inner-content-title">
                 <div className="card-container">
                     {getSaddles.map(getSaddles => (
-                        <div className="saddle-card">
+                        <div className="saddle-card" key={getSaddles.id}>
                         <img src={comingsoon} alt="coming soon" height="100"/>
                         <h3>{getSaddles.saddle_name}</h3>
                         <p>{getSaddles.price}</p>
