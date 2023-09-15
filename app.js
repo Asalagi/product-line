@@ -26,6 +26,16 @@ app.get('/saddles', async (req, res) => {
     }
 });
 
+app.get('/saddles/:id', async (req, res) => {
+    try {
+        const saddleId = req.params.id;
+        const response = await saddle.getSaddleById(saddleId);
+        res.status(200).send(response);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
 app.post('/saddles', (req, res) => {
     saddle.addSaddle(req.body)
     .then(response => {

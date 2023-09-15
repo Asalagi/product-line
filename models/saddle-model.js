@@ -1,5 +1,4 @@
 
-const { request } = require('express');
 const pool = require('.././config/saddle-config');
 
 const getSaddles = () => {
@@ -13,6 +12,18 @@ const getSaddles = () => {
     });
  });
 };
+
+const getSaddleById = (id) => {
+    return new Promise(async (resolve, reject) => {
+        pool.query(`SELECT * FROM saddle WHERE id = $1`, [id], (error, results) => {
+            if(error) {
+                reject('Something went wrong', error);
+            } else {
+                resolve(results.rows[0]);
+            }
+        })
+    })
+}
 
 const addSaddle = (body) => {
     const { type, size, color, weight, description, price, saddle_name } = body;
@@ -45,6 +56,7 @@ const deleteSaddle = (id) => {
 
 module.exports = {
     getSaddles,
+    getSaddleById,
     addSaddle,
     deleteSaddle,
 }

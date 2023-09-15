@@ -13,7 +13,7 @@ function Saddles() {
         axios.get('http://localhost:3001/saddles')
         .then((response) => setGetSaddles(response.data))
         .catch (error => {
-            console.log(error.message);
+            console.log('here is an error message.', error.message);
         });
     }, []);
 
@@ -22,6 +22,8 @@ function Saddles() {
             <Header></Header>
             <div className="hb-inner-content">
             <div className="inner-content-title">
+            <h2>Saddles For Sale</h2>
+            <p>Finding your perfect saddle starts here.</p>
                 <div className="card-container">
                     {getSaddles.map(getSaddles => (
                         <div className="saddle-card" key={getSaddles.id}>
