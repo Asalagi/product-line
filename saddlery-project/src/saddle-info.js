@@ -24,22 +24,23 @@ function SaddleDetails() {
             <div className="hb-inner-content">
             <div className="inner-content-title">
             <h2>{getDetails.saddle_name}</h2>
-            {getDetails.price}
+            <p className="price-tag">{getDetails.price}</p>
                 <div className="detail-img-container">
                 <img src={comingsoon} alt="coming soon" height="200"/>
                 <div className="detail-content">
-                    <div className="detail-item">Type </div>
-                    <div className="detail-item">Size</div>
-                    <div className="detail-item">Color</div>
-                    <div className="detail-item">Weight</div>
+                    <div className="detail-item go-right">Type </div>
+                    <div className="detail-item go-right">Size</div>
+                    <div className="detail-item go-right">Color</div>
+                    <div className="detail-item go-right">Weight</div>
                 </div>
                 <div className="detail-content">
                     <div className="detail-item">{getDetails.type}</div>
-                    <div className="detail-item">{getDetails.size}</div>
+                    <div className="detail-item">{getDetails.size}"</div>
                     <div className="detail-item">{getDetails.color}</div>
-                    <div className="detail-item">{getDetails.weight}</div>
+                    <div className="detail-item">{getDetails.weight} lbs.</div>
                 </div>
                 </div>
+                <button>Edit</button>  <button>Delete</button>
             </div>
             </div>
             <Footer></Footer>

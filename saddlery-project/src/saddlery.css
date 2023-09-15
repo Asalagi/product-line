@@ -11,7 +11,7 @@ html, body {
     min-height: 100vh;
     flex-direction: column;
     justify-content: flex-start;
-    border: 1px solid black;
+    border: 0px solid black;
 }
 
 .hb-header {
@@ -62,7 +62,7 @@ html, body {
     flex-direction: column;
     flex-grow: 1;
     padding: 10px;
-    border: 1px solid black;
+    border: 0px solid black;
 }
 
 .inner-content-title {
@@ -71,7 +71,7 @@ html, body {
     padding: 10px;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 0px solid black;
 }
 
 .card-container {
@@ -80,15 +80,15 @@ html, body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgb(167, 37, 37);
+    border: 0px solid rgb(167, 37, 37);
 }
 
 .detail-img-container {
     display: flex;
-    width: 75%;
+    width: 30%;
     flex-direction: row;
     justify-content: space-between;
-    border: 1px solid rgb(167, 37, 37);
+    border: 0px solid rgb(167, 37, 37);
 }
 
 .detail-item {
@@ -97,11 +97,20 @@ html, body {
     padding: 5px;
     justify-content: left;
     align-items: center;
-    border: 1px solid black;
+    border: 0px solid black;
 }
 
 .go-right {
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: right;
+    font-weight: bold;
+}
+
+.price-tag {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: red;
 }
 
 .detail-content {
